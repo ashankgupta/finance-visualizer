@@ -57,7 +57,7 @@ It helps users add, view, and analyze transactions with a clean dashboard UI, ca
 ## 1) 🐳 Run with Docker
 #### 1️⃣ Clone the repo
 ```
-git clone https://github.com/Ashank007/finance-visualizer.git
+git clone https://github.com/ashankgupta/finance-visualizer.git
 cd finance-visualizer
 ```
 #### 2️⃣ Start all services (frontend + backend + db)
