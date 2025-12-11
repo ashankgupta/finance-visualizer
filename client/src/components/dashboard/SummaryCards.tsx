@@ -1,5 +1,6 @@
 "use client";
 import { useMemo } from "react";
+import { Link } from "react-router-dom";
 import type { Transaction } from "../../types/Transaction";
 
 export default function SummaryCards({
@@ -29,6 +30,31 @@ console.log(loading);
     return { map, topCategory: top ? { name: top[0], value: top[1] } : null };
   }, [transactions]);
 
+  const handleExport = () => {
+    if (transactions.length === 0) return;
+
+    const headers = ["Amount", "Description", "Date", "Category"];
+    const csvContent = [
+      headers.join(","),
+      ...transactions.map(tx => [
+        tx.amount,
+        `"${tx.description}"`,
+        new Date(tx.date).toLocaleDateString(),
+        tx.category
+      ].join(","))
+    ].join("\n");
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.setAttribute("href", url);
+    link.setAttribute("download", "transactions.csv");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
       <div className="bg-[#1A1A1A] p-5 rounded-2xl shadow-md border border-[#2a2a2a]">
@@ -56,14 +82,20 @@ console.log(loading);
 
       <div className="bg-[#1A1A1A] p-5 rounded-2xl shadow-md border border-[#2a2a2a]">
         <p className="text-sm text-gray-300">Actions</p>
-        <div className="flex gap-3 mt-3">
-          <button className="px-4 py-2 rounded-md bg-cyan-500 text-black font-semibold hover:brightness-110">
-            Quick Add
-          </button>
-          <button className="px-4 py-2 rounded-md border border-gray-700 text-gray-200 hover:bg-[#252525]">
-            Export CSV
-          </button>
-        </div>
+         <div className="flex gap-3 mt-3">
+           <Link
+             to="/add-transaction"
+             className="px-4 py-2 rounded-md bg-cyan-500 text-black font-semibold hover:brightness-110 inline-block"
+           >
+             Quick Add
+           </Link>
+           <button
+             onClick={handleExport}
+             className="px-4 py-2 rounded-md border border-gray-700 text-gray-200 hover:bg-[#252525]"
+           >
+             Export CSV
+           </button>
+         </div>
       </div>
     </div>
   );

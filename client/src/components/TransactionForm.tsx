@@ -78,9 +78,9 @@ export default function TransactionForm({ onAdd }: TransactionFormProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       onSubmit={handleSubmit}
-      className="max-w-lg mx-auto p-6 md:p-8 bg-white rounded-xl shadow-lg border border-gray-200 font-sans text-gray-800 relative overflow-hidden"
+      className="max-w-lg mx-auto p-6 md:p-8 bg-[#1A1A1A] rounded-xl shadow-lg border border-[#2a2a2a] font-sans text-white relative overflow-hidden"
     >
-      <h2 className="text-3xl font-bold text-center text-gray-900 mb-8 pb-4 border-b border-gray-200">
+      <h2 className="text-3xl font-bold text-center text-white mb-8 pb-4 border-b border-[#2a2a2a]">
         Record New Transaction
       </h2>
 
@@ -88,8 +88,8 @@ export default function TransactionForm({ onAdd }: TransactionFormProps) {
         {/* Amount */}
         <div className="relative">
           <label htmlFor="amount" className="sr-only">Amount</label>
-          <div className="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 transition-all duration-200">
-            <CurrencyRupeeIcon className="h-6 w-6 text-gray-500 ml-4 mr-2" />
+          <div className="flex items-center border border-[#2a2a2a] rounded-lg focus-within:ring-2 focus-within:ring-cyan-500 focus-within:border-cyan-500 transition-all duration-200">
+            <CurrencyRupeeIcon className="h-6 w-6 text-gray-400 ml-4 mr-2" />
             <input
               id="amount"
               type="number"
@@ -97,27 +97,27 @@ export default function TransactionForm({ onAdd }: TransactionFormProps) {
               min="0"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="block w-full p-3 text-lg text-gray-900 bg-transparent outline-none placeholder-gray-400"
+              className="block w-full p-3 text-lg text-white bg-transparent outline-none placeholder-gray-500"
               placeholder="0.00"
               required
               aria-label="Transaction Amount"
             />
-            <span className="text-gray-500 pr-4 text-lg">₹</span>
+            <span className="text-gray-400 pr-4 text-lg">₹</span>
           </div>
         </div>
 
         {/* Date */}
         <div className="relative">
           <label htmlFor="date" className="sr-only">Date</label>
-          <div className="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 transition-all duration-200">
-            <CalendarIcon className="h-6 w-6 text-gray-500 ml-4 mr-2" />
+          <div className="flex items-center border border-[#2a2a2a] rounded-lg focus-within:ring-2 focus-within:ring-cyan-500 focus-within:border-cyan-500 transition-all duration-200">
+            <CalendarIcon className="h-6 w-6 text-gray-400 ml-4 mr-2" />
             <input
               id="date"
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
               max={new Date().toISOString().slice(0, 10)}
-              className="block w-full p-3 text-lg text-gray-900 bg-transparent outline-none appearance-none"
+              className="block w-full p-3 text-lg text-white bg-transparent outline-none appearance-none"
               required
               aria-label="Transaction Date"
             />
@@ -127,15 +127,15 @@ export default function TransactionForm({ onAdd }: TransactionFormProps) {
         {/* Description */}
         <div className="relative">
           <label htmlFor="description" className="sr-only">Description</label>
-          <div className="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 transition-all duration-200">
-            <DocumentTextIcon className="h-6 w-6 text-gray-500 ml-4 mr-2" />
+          <div className="flex items-center border border-[#2a2a2a] rounded-lg focus-within:ring-2 focus-within:ring-cyan-500 focus-within:border-cyan-500 transition-all duration-200">
+            <DocumentTextIcon className="h-6 w-6 text-gray-400 ml-4 mr-2" />
             <input
               id="description"
               type="text"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="e.g., Groceries, Rent, Salary"
-              className="block w-full p-3 text-lg text-gray-900 bg-transparent outline-none"
+              className="block w-full p-3 text-lg text-white bg-transparent outline-none"
               aria-label="Transaction Description"
             />
           </div>
@@ -144,13 +144,13 @@ export default function TransactionForm({ onAdd }: TransactionFormProps) {
         {/* Category */}
         <div className="relative">
           <label htmlFor="category" className="sr-only">Category</label>
-          <div className="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 transition-all duration-200">
-            <ListBulletIcon className="h-6 w-6 text-gray-500 ml-4 mr-2" />
+          <div className="flex items-center border border-[#2a2a2a] rounded-lg focus-within:ring-2 focus-within:ring-cyan-500 focus-within:border-cyan-500 transition-all duration-200">
+            <ListBulletIcon className="h-6 w-6 text-gray-400 ml-4 mr-2" />
             <select
               id="category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="block w-full p-3 text-lg text-gray-900 bg-transparent outline-none"
+              className="block w-full p-3 text-lg text-white bg-transparent outline-none"
               required
             >
               {categories.map((cat) => (
@@ -176,7 +176,7 @@ export default function TransactionForm({ onAdd }: TransactionFormProps) {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="flex items-center bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative mb-6"
+            className="flex items-center bg-red-900/20 border border-red-600 text-red-200 px-4 py-3 rounded-lg relative mb-6"
             role="alert"
           >
             <XCircleIcon className="h-5 w-5 mr-3 flex-shrink-0" />
@@ -186,7 +186,7 @@ export default function TransactionForm({ onAdd }: TransactionFormProps) {
               className="absolute top-0 bottom-0 right-0 px-4 py-3"
               aria-label="Close alert"
             >
-              <XCircleIcon className="h-5 w-5 text-red-700" />
+              <XCircleIcon className="h-5 w-5 text-red-200" />
             </button>
           </motion.div>
         )}
@@ -199,10 +199,10 @@ export default function TransactionForm({ onAdd }: TransactionFormProps) {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="flex items-center bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative mb-6"
+            className="flex items-center bg-green-900/20 border border-green-600 text-green-200 px-4 py-3 rounded-lg relative mb-6"
             role="alert"
           >
-            <PlusCircleIcon className="h-5 w-5 mr-3 flex-shrink-0" />
+             <PlusCircleIcon className="h-5 w-5 mr-3 flex-shrink-0 text-green-200" />
             <span className="block sm:inline">Transaction added successfully!</span>
           </motion.div>
         )}
@@ -213,7 +213,7 @@ export default function TransactionForm({ onAdd }: TransactionFormProps) {
         whileTap={{ scale: 0.98 }}
         whileHover={{ scale: 1.02 }}
         disabled={isSubmitting}
-        className="w-full relative flex items-center justify-center bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-75 disabled:opacity-60 disabled:cursor-not-allowed text-lg"
+        className="w-full relative flex items-center justify-center bg-cyan-500 text-black font-semibold py-3 px-6 rounded-lg shadow-md hover:brightness-110 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-cyan-300 focus:ring-opacity-75 disabled:opacity-60 disabled:cursor-not-allowed text-lg"
       >
         {isSubmitting ? (
           <div className="flex items-center">

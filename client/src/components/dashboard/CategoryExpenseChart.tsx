@@ -5,6 +5,17 @@ import { useMemo } from "react";
 
 const COLORS = ["#00E5FF", "#A259FF", "#10B981", "#F59E0B", "#EF4444", "#60A5FA"];
 
+const CustomTooltip = ({ active, payload }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-[#0b1220] border border-[#2a2a2a] p-2 rounded text-white text-sm">
+        <p>{`${payload[0].name}: ₹${payload[0].value.toFixed(2)}`}</p>
+      </div>
+    );
+  }
+  return null;
+};
+
 export default function CategoryExpenseChart({
   transactions,
   loading,
@@ -46,7 +57,7 @@ export default function CategoryExpenseChart({
         <div style={{ width: 260, height: 220 }}>
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
-              <Tooltip formatter={(v: number) => `₹${v.toFixed(2)}`} contentStyle={{ backgroundColor: "#0b1220", border: "1px solid #2a2a2a" }} />
+              <Tooltip content={<CustomTooltip />} />
               <Pie data={data} dataKey="value" nameKey="name" innerRadius={50} outerRadius={90} paddingAngle={3}>
                 {data.map((_, i) => (
                   <Cell key={i} fill={COLORS[i % COLORS.length]} />

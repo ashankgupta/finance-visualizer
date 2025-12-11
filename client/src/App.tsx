@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import DashboardContainer from "./components/dashboard/DashboardContainer";
 import TransactionsPage from "./components/transaction/TransactionPage";
+import AddTransactionPage from "./pages/AddTransactionPage";
 
 export default function App() {
   return (
@@ -10,11 +11,11 @@ export default function App() {
       <Navbar />
       {/* Main content with top padding for fixed navbar */}
       <div className="pt-16 bg-[#0d1117] min-h-screen">
-        <Routes>
-          <Route path="/" element={<DashboardContainer />} />
-          <Route path="/transactions" element={<TransactionsPage />} />
-          {/* <Route path="/add-transaction" element={<AddTransactionPage />} /> */}
-        </Routes>
+         <Routes>
+           <Route path="/" element={<DashboardContainer />} />
+           <Route path="/transactions" element={<TransactionsPage />} />
+           <Route path="/add-transaction" element={<AddTransactionPage />} />
+         </Routes>
       </div>
     </BrowserRouter>
   );

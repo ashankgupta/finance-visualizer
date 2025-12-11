@@ -6,7 +6,7 @@ export default function Navbar() {
   const navLinks = [
     { to: "/", label: "Dashboard" },
     { to: "/transactions", label: "Transactions" },
-    // { to: "/add-transaction", label: "Add Transaction" },
+    { to: "/add-transaction", label: "Add Transaction" },
   ];
 
   return (

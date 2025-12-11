@@ -62,6 +62,16 @@ It helps users add, view, and analyze transactions with a clean dashboard UI, ca
 git clone https://github.com/ashankgupta/finance-visualizer.git
 cd finance-visualizer
 ```
+
+#### Setup Environment Variables
+Copy the example environment files and update them for Docker:
+```
+cp api/.env.example api/.env
+cp client/.env.example client/.env
+```
+- In `api/.env`, set `MONGO_URI=mongodb://mongodb:27017/`
+- In `client/.env`, set `VITE_API_BASE_URL=http://backend:3001`
+
 #### Start all services (frontend + backend + db)
 ```
 docker-compose up --build
@@ -72,9 +82,19 @@ docker-compose up --build
 
 - Backend API → http://localhost:3001/api
 
-- MongoDB → mongodb://localhost:27017/finance
+- MongoDB → mongodb://localhost:27019/finance
 
 ## 2) Running Without Docker
+
+#### Setup Environment Variables
+Copy the example environment files:
+```
+cp api/.env.example api/.env
+cp client/.env.example client/.env
+```
+
+#### MongoDB Setup
+Install MongoDB locally and ensure it's running on the default port (27017).
 
 #### Backend (API)
 ```
@@ -93,13 +113,6 @@ npm run dev
 ```
 By default frontend will be on:
 http://localhost:5173
-
-#### MongoDB Setup
-Install MongoDB locally and create a new database (e.g. expense_db).
-Inside the api/ folder, create a .env file and add the following:
-```
-MONGO_URI=mongodb://localhost:27017/expense_db
-```
 
 ## API Routes
 

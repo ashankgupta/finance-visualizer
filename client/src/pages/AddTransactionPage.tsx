@@ -12,7 +12,7 @@ export default function AddTransactionPage() {
   };
 
   return (
-    <div className="p-6 bg-white rounded-2xl shadow-xl border border-gray-100 max-w-md mx-auto">
+    <div className="p-6 bg-[#1A1A1A] rounded-2xl shadow-xl border border-[#2a2a2a] max-w-md mx-auto text-white">
       <TransactionForm onAdd={handleAdd} />
     </div>
   );
